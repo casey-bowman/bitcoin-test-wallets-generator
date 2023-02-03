@@ -56,19 +56,17 @@ do
 
     command0="bitcoin-cli -datadir="${datadir}" createwallet "${wallet}" || die"
 
-#    eval $command0
-
     command1="bitcoin-cli -datadir="${datadir}"  -rpcwallet="${wallet}" importdescriptors '[{\"desc\": \""${descriptor1}\#${checksum1}"\", \"timestamp\":\"now\"}]' || die"
     command2="bitcoin-cli -datadir="${datadir}"  -rpcwallet="${wallet}" importdescriptors '[{\"desc\": \""${descriptor2}\#${checksum2}"\", \"timestamp\":\"now\"}]' || die"
     command3="bitcoin-cli -datadir="${datadir}"  -rpcwallet="${wallet}" importdescriptors '[{\"desc\": \""${descriptor3}\#${checksum3}"\", \"timestamp\":\"now\"}]' || die"
     command4="bitcoin-cli -datadir="${datadir}"  -rpcwallet="${wallet}" importdescriptors '[{\"desc\": \""${descriptor4}\#${checksum4}"\", \"timestamp\":\"now\"}]' || die"
-#    eval $command1
-#    eval $command2
-#    eval $command3
-#    eval $command4
+    eval $command1
+    eval $command2
+    eval $command3
+    eval $command4
 
     command5="bitcoin-cli  -datadir="${datadir}" -rpcwallet="${wallet}" -generate 101  || die"
-#    eval $command5
+    eval $command5
 
     command6="bitcoin-cli -datadir="${datadir}" getdescriptorinfo \""${descriptor1}"\""
     command7="bitcoin-cli -datadir="${datadir}" getdescriptorinfo \""${descriptor2}"\""
@@ -80,8 +78,7 @@ do
 #    eval $command9
 
     command10="bitcoin-cli -datadir="${datadir}" -rpcwallet="${wallet}" listdescriptors"
-    eval $command10
+#    eval $command10
 
-    ((count ++))
-    break
+    ((count ++))s
 done
